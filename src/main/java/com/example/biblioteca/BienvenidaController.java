@@ -10,6 +10,7 @@ public class BienvenidaController {
 
     @GetMapping
     public String bienvenida() {
+        String saludo = "Bienvenid@ al IES Monte Naranco!! a todos";
         return "Bienvenid@ al IES Monte Naranco!! a todos \n Añado para forzar análisis de sonar";
     }
 }
