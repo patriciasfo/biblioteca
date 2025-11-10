@@ -11,7 +11,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path="/api")
 public class LibroController {
-
     @Autowired
     private LibroServiceImpl libroServiceImpl; //Se inyecta la dependencia
 
@@ -24,15 +23,12 @@ public class LibroController {
     public Optional<Libro> getLibro(@PathVariable Long id) {
         return this.libroServiceImpl.getLibro(id);
     }
-
     @PostMapping
     void guardarOActualizarLibro(@RequestBody Libro libro) {
         this.libroServiceImpl.guardarOActualizarLibro(libro);
     }
-
     @DeleteMapping("/{libroId}")
     void eliminarLibro(@PathVariable("libroId") Long libroId) {
         this.libroServiceImpl.eliminarLibro(libroId);
     }
-
 }
