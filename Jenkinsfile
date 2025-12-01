@@ -10,7 +10,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main',
+                git branch: 'master',
                     url: 'https://github.com/patriciasfo/biblioteca.git'
             }
         }
@@ -41,9 +41,9 @@ pipeline {
         stage('Stop Previous Instance') {
             steps {
                 sh """
-                    if pgrep -f "api-demo.jar"; then
+                    if pgrep -f "biblioteca.jar"; then
                         echo "Stopping previous instance..."
-                        pkill -f api-demo.jar
+                        pkill -f biblioteca.jar
                     fi
                 """
             }
