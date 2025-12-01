@@ -17,19 +17,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                bat 'mvn package'
             }
             post {
                 success {
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Stop Previous Instance') {
             steps {
-                sh """
+                bat """
                     if pgrep -f "biblioteca.jar"; then
                         echo "Stopping previous instance..."
                         pkill -f biblioteca.jar
@@ -51,7 +51,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh """
+                bat """
                     echo "Starting new instance..."
                     nohup java -jar target/*.jar > app.log 2>&1 &
                 """
