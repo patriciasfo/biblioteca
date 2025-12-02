@@ -20,5 +20,11 @@ pipeline {
                     url: 'https://github.com/patriciasfo/biblioteca.git'
             }
         }
+
+        stage('Maven clean'){
+            steps {
+                bat 'mvn clean'
+            }
+        }
     }
 }       
