@@ -53,5 +53,14 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy') {
+            steps {
+                bat """
+                    echo "Starting deploy..."
+                    java -jar target/biblioteca-${VERSION_BACK}.jar
+                """
+            }
+        }
     }
 }       
