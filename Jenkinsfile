@@ -6,6 +6,10 @@ pipeline {
         maven 'Maven3.9.11'
     }
 
+    environment {
+            VERSION = "1.0.0" // Define la variable de versión
+        }
+
     stages {
         stage('Show messages'){
             steps {
@@ -24,6 +28,12 @@ pipeline {
         stage('Maven clean'){
             steps {
                 bat 'mvn clean'
+            }
+        }
+
+        stage('Crear carpeta con variable'){
+            steps {
+                bat 'mkdir %VERSION%'
             }
         }
     }
