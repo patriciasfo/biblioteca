@@ -29,7 +29,7 @@ pipeline {
                 failure {
                     bat 'echo "Ocurrió un error al realizar el checkout del proyecto"'
                 }
-                allways {
+                always {
                     bat 'echo "Mensaje que se muestra siempre"'
                 }
             }
