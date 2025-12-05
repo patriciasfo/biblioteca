@@ -11,12 +11,11 @@ pipeline {
         }
 
     stages {
-        /*stage('Show messages'){
+        stage('Show message'){
             steps {
-                bat 'echo "Primer stage del pipeline"'
-                bat 'echo "A continuación hacemos checkout del proyecto"'
+                bat 'echo "Primer stage del pipeline"'                
             }
-        }*/
+        }
 
         stage('Checkout proyecto'){
             steps {
@@ -29,6 +28,9 @@ pipeline {
                 }
                 failure {
                     bat 'echo "Ocurrió un error al realizar el checkout del proyecto"'
+                }
+                allways {
+                    bat 'echo "Mensaje que se muestra siempre"'
                 }
             }
         }
