@@ -11,17 +11,25 @@ pipeline {
         }
 
     stages {
-        stage('Show messages'){
+        /*stage('Show messages'){
             steps {
                 bat 'echo "Primer stage del pipeline"'
                 bat 'echo "A continuación hacemos checkout del proyecto"'
             }
-        }
+        }*/
 
         stage('Checkout proyecto'){
             steps {
                 git branch: 'master',
                     url: 'https://github.com/patriciasfo/biblioteca.git'
+            }
+            post {
+                success {
+                    bat 'echo "Se hizo el checkout del proyecto"'
+                }
+                failure {
+                    bat 'echo "Ocurrió un error al realizar el checkout del proyecto"'
+                }
             }
         }
 
