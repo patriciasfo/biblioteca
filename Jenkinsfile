@@ -47,6 +47,12 @@ pipeline {
             }
         }
 
+        stage('Copiar ficheros'){
+            steps {
+                bat 'copy *.jar %VERSION%'
+            }
+        }
+
         /*stage('Deploy') {
             steps {
                 bat """
