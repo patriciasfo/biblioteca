@@ -46,5 +46,14 @@ pipeline {
                 bat 'mkdir %VERSION%'
             }
         }
+
+        /*stage('Deploy') {
+            steps {
+                bat """
+                    echo "Starting deploy..."
+                    java -jar target/ExamenMOC_PSF-${VERSION}.jar
+                """
+            }
+        }*/
     }
 }       
