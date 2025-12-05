@@ -7,10 +7,10 @@ pipeline {
     }
 
     stages {
-        stage('Show messages'){
+        stage('Show message'){
             steps {
                 bat 'echo "Primer stage del pipeline"'
-                bat 'echo "A continuación hacemos checkout del proyecto"'
+                bat 'echo "A continuación hacemos Checkout del proyecto"'
             }
         }
 
